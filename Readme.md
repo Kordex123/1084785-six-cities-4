@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Фабияньская Яна](https://up.htmlacademy.ru/react/4/user/1084785).
-* Наставник: `Неизвестно`.
+* Наставник: `Without a mentor`.
 
 ---
 
