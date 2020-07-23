@@ -3,14 +3,20 @@ import PropTypes from 'prop-types';
 import Main from '../main/main.jsx';
 
 const App = (props) => {
-  const {accomodationCount} = props;
+  const {accomodationCount, hotels} = props;
   return (
-    <Main accomodationCount={accomodationCount}/>
+    <Main
+      accomodationCount={accomodationCount}
+      hotels={hotels}
+    />
   );
 };
 
 App.propTypes = {
-  accomodationCount: PropTypes.number.isRequired
+  accomodationCount: PropTypes.number.isRequired,
+  hotels: PropTypes.shape({
+    description: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+  })
 };
 
 export default App;
