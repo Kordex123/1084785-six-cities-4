@@ -2,9 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Room = (props) => {
-  const {name} = props;
+  const {name, onPlaceClick} = props;
   return (
-    <article className="cities__place-card place-card">
+    <article
+      onClick={onPlaceClick}
+      className="cities__place-card place-card">
       <div className="place-card__mark">
         <span>Premium</span>
       </div>
@@ -42,7 +44,8 @@ const Room = (props) => {
 };
 
 Room.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  onPlaceClick: PropTypes.func.isRequired
 };
 
 export default Room;
