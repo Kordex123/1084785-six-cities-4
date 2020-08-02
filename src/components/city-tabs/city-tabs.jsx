@@ -25,5 +25,5 @@ export default class CityTabs extends PureComponent {
 }
 
 CityTabs.propTypes = {
-  cityNames: PropTypes.array.isRequired
+  cityNames: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
 };
