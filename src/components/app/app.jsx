@@ -1,22 +1,26 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import Main from '../main/main.jsx';
+import render from "enzyme/src/render";
 
-const App = (props) => {
-  const {accomodationCount, hotels} = props;
-  return (
-    <Main
-      accomodationCount={accomodationCount}
-      hotels={hotels}
-    />
-  );
-};
+export default class App extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const {accomodationCount, accomodationOffers} = this.props;
+    return (
+      <Main
+        accomodationCount={accomodationCount}
+        accomodationOffers={accomodationOffers}
+      />
+    );
+  }
+}
 
 App.propTypes = {
   accomodationCount: PropTypes.number.isRequired,
-  hotels: PropTypes.shape({
-    description: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
-  })
+  accomodationOffers: PropTypes.array.isRequired
 };
 
-export default App;

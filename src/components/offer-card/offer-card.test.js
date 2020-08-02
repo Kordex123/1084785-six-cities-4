@@ -1,10 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Room from "./room.jsx";
+import OfferCard from "./offer-card.jsx";
 
 it(`Should Room render correctly`, () => {
   const tree = renderer
-    .create(<Room
+    .create(<OfferCard
       name={`Accomodation in Marriott`}
       onPlaceClick={() => {}}
     />).
