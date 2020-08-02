@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import {AccomodationType} from "../../accomodation-type";
 
 const OfferDetails = (props) => {
-  const {id, images, title, isPremium, description, rating, type, bedrooms, maxAdults, price, goods, host} = props.offer;
+  const {images, title, isPremium, description, rating, type, bedrooms, maxAdults, price, goods, host} = props.offer;
   const {avatarUrl, name} = host;
   return (
     <main className="page__main page__main--property">
       <section className="property">
         <div className="property__gallery-container container">
           <div className="property__gallery">
-            {images.map((image) => (
-              <div key={id} className="property__image-wrapper">
+            {images.map((image, idx) => (
+              <div key={`key-${idx}`} className="property__image-wrapper">
                 <img className="property__image" src={image} alt="Photo studio"/>
               </div>
             ))}
@@ -58,8 +58,8 @@ const OfferDetails = (props) => {
             <div className="property__inside">
               <h2 className="property__inside-title">What&apos;s inside</h2>
               <ul className="property__inside-list">
-                { goods.map((good) => (
-                  <li key={id} className="property__inside-item">
+                { goods.map((good, idx) => (
+                  <li key={`good-${idx}`} className="property__inside-item">
                     {good}
                   </li>
                 ))}
@@ -90,7 +90,6 @@ const OfferDetails = (props) => {
 
 OfferDetails.propTypes = {
   offer: PropTypes.shape({
-    id: PropTypes.number.isRequired,
     images: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     title: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
