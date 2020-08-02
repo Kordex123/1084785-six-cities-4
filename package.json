@@ -21,6 +21,7 @@
     "eslint": "5.13.0",
     "eslint-config-htmlacademy": "0.5.2",
     "eslint-plugin-react": "7.20.3",
+    "history": "^5.0.0",
     "jest": "26.1.0",
     "react-test-renderer": "16.13.1",
     "webpack": "4.43.0",
@@ -31,8 +32,10 @@
     "node": "10"
   },
   "dependencies": {
+    "lodash": "4.17.19",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-router-dom": "5.2.0"
   }
 }
