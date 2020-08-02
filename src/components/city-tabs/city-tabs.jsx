@@ -6,12 +6,12 @@ export default class CityTabs extends PureComponent {
     super(props);
   }
   render() {
-    const {accomodationOffers} = this.props;
-    const cities = accomodationOffers.map((offer, idx) => (
+    const {cityNames} = this.props;
+    const cities = cityNames.map((cityName, idx) => (
       <li key={`offer-${idx}`}
         className="locations__item">
         <a className="locations__item-link tabs__item tabs__item--active" href="#">
-          <span>{offer.city.name}</span>
+          <span>{cityName}</span>
         </a>
       </li>
     ));
@@ -25,5 +25,5 @@ export default class CityTabs extends PureComponent {
 }
 
 CityTabs.propTypes = {
-  accomodationOffers: PropTypes.array.isRequired
+  cityNames: PropTypes.array.isRequired
 };

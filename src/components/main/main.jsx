@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import {uniq} from 'lodash';
 import OfferList from "../offer-list/offer-list.jsx";
 import CityTabs from "../city-tabs/city-tabs.jsx";
 
@@ -46,7 +47,7 @@ export default class Main extends PureComponent {
           <h1 className="visually-hidden">Cities</h1>
           <div className="tabs">
             <section className="locations container">
-              <CityTabs accomodationOffers={accomodationOffers}/>
+              <CityTabs cityNames={uniq(accomodationOffers.map(({city}) => city.name))}/>
             </section>
           </div>
           <div className="cities">
@@ -58,10 +59,10 @@ export default class Main extends PureComponent {
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex="0">
                   Popular
-                  <svg className="places__sorting-arrow" width="7" height="4">
-                    <use xlinkHref="#icon-arrow-select"></use>
-                  </svg>
-                </span>
+                    <svg className="places__sorting-arrow" width="7" height="4">
+                      <use xlinkHref="#icon-arrow-select"></use>
+                    </svg>
+                  </span>
                   <ul className="places__options places__options--custom places__options--opened">
                     <li className="places__option places__option--active" tabIndex="0">Popular</li>
                     <li className="places__option" tabIndex="0">Price: low to high</li>

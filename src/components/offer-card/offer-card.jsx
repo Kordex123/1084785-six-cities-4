@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {AccomodationType} from "../../accomodation-type";
+import {Link} from "react-router-dom";
 
 const OfferCard = (props) => {
-  const {room, onRoomTitleClick, onRoomHover} = props;
-  const {title, previewImage, price, rating, type} = room;
+  const {room, onRoomHover} = props;
+  const {id, title, previewImage, price, rating, type} = room;
+  const ratingValue = Math.round(rating) * 20;
   return (
     <article
       className="cities__place-card place-card"
@@ -31,12 +34,12 @@ const OfferCard = (props) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{"width": `80%`}}></span>
+            <span style={{"width": `${ratingValue}%`}}></span>
             <span className="visually-hidden">{rating}</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#" onClick={() => onRoomTitleClick(room)}>{title}</a>
+          <Link to={`/dev-offerdetails/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -46,13 +49,13 @@ const OfferCard = (props) => {
 
 OfferCard.propTypes = {
   room: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     previewImage: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
-    type: PropTypes.string.isRequired
+    type: PropTypes.oneOf([AccomodationType.APARTMENT, AccomodationType.HOTEL, AccomodationType.HOUSE, AccomodationType.ROOM]).isRequired,
   }).isRequired,
-  onRoomTitleClick: PropTypes.func.isRequired,
   onRoomHover: PropTypes.func.isRequired,
 };
 
